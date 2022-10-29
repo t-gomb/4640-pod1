@@ -1,0 +1,14 @@
+---
+  - hosts: all
+  remote_user: HAHA
+  become: true
+
+  tasks:
+    - name: install podman
+      package:
+        name: "podman"
+        state: present
+
+    - name: pull an image
+      containers.podman.podman_image:
+        name: nginx 
